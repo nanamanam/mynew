@@ -26,17 +26,19 @@
 		<td><div data-tooltip="{{LotID}}" data-inverted="">
 		<a href="{{pathFor 'stockEdit'}}" >
 		{{#if equals Status "OUT"}}
-			<a class="ui red ribbon label"><h4>Batch {{NO}} {{Status}}</h4></a>
+			<a class="ui red ribbon label"><h4><i class="shipping icon"></i>Batch {{NO}} {{Status}}</h4></a>
 		{{else if equals Status "IN"}}
-			<a class="ui green ribbon label"><h4>Batch {{NO}}  {{Status}}</h4></a>
+			<a class="ui green ribbon label"><h4><i class="check circle icon"></i>Batch {{NO}}  {{Status}}</h4></a>
+		{{else if equals Status "IDLE"}}
+			<a class="ui black ribbon label"><h4><i class="tag icon"></i>Batch {{NO}}  {{Status}}</h4></a>
 		{{/if}}
 		</a>
 		{{LotID}}
 		</div></td>
 		<td>{{TimeIN}}</td>
-		<td>{{getName(QCIN)}}</td>
+		<td>{{{getname QCIN}}}</td>
 		<td>{{TimeOUT}}</td>
-		<td>{{QCOUT}}</td>
+		<td>{{{getname QCOUT}}}</td>
 		<td>{{Note}}</td>
 		</tr>    
 	{{/each}}

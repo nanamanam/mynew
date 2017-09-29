@@ -22,6 +22,8 @@ Template.stockEdit.events({
   'click .delete': function(e) {
     e.preventDefault();
       var currentPostId = this._id;
+      var currentlot = this.LotID;
+       Meteor.subscribe('logs',this._id);
       new Confirmation({
         message: "Are you sure ?",
         title: "Confirmation",
@@ -32,7 +34,9 @@ Template.stockEdit.events({
       }, function (ok) {
         // ok is true if the user clicked on "ok", false otherwise
         if(ok){
-        
+          Logs.find({LotID: currentlot}).forEach(function (doc) {
+          Logs.remove({_id: doc._id});
+        });
         Stocks.remove(currentPostId);
         Router.go('/stock');
         }

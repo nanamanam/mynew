@@ -25,6 +25,7 @@
     <th>Customer</th>
     <th>Laboratory</th>
     <th>QR Code</th>
+    <th>Create By</th>
   </tr></thead>
 	<tbody>
     {{#each stocks}}
@@ -32,18 +33,20 @@
 		<td><div data-tooltip="{{LotID}}" data-inverted="">
 		<a href="{{pathFor 'loglist'}}" >
 		{{#if equals Status "loading"}}
-			<a class="ui red ribbon label"><h4>Loading {{LotID}}</h4></a>
+			<a class="ui orange ribbon label"><h4><i class="shipping icon"></i>Loading {{LotID}}</h4></a>
 		{{else if equals Status "process"}}
-			<a class="ui green ribbon label"><h4>Process {{LotID}}</h4></a>
+			<a class="ui blue ribbon label"><h4><i class="wait icon"></i>Process {{LotID}}</h4></a>
+		{{else if equals Status "IDLE"}}
+			<a class="ui ribbon label"><h4><i class="inbox icon"></i>{{LotID}}</h4></a>
 		{{else}}
 			{{LotID}}
 		{{/if}}
 
 		</a></div></td>
 		<td>{{Name}}</td>
-		<td>1000 KG</td>
+		<td>{{Capacity}} KG</td>
 		<td>{{Remain}}</td>
-		<td>0</td>
+		<td>{{Checkout}}</td>
 		<td>customer</td>
 		<td ><a href="{{pathFor 'qrcodelist' Start='1' End='20' }}" ><i class="icon checkmark"></i> Pass</a></td>
 		<td>
@@ -52,6 +55,7 @@
 
   
 		</td>
+		<td><a href="{{pathFor 'stockEdit'}}" >{{username}}</a></td>
 		</tr>    {{/each}}
 	</tbody>
 	</table>

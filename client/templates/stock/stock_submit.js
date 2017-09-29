@@ -21,11 +21,11 @@ Template.stockSubmit.events({
       LotID: $(e.target).find('[name=LotID]').val(),
       Name: $(e.target).find('[name=Name]').val(),
       Package: $(e.target).find('[name=Package]').val(),
-      Remain: $(e.target).find('[name=Remain]').val()
+      Capacity: $(e.target).find('[name=Capacity]').val()
       //author:  $(e.target).find('[name=author]').val()
     };
     var errors = validatestock(stock);
-    if (errors.LotID || errors.Name || errors.Package || errors.Remain)
+    if (errors.LotID || errors.Name || errors.Package || errors.Capacity)
       return Session.set('stockSubmitErrors', errors);
     //alert("Submit2");
     Meteor.call('stockInsert', stock, function(error, result) {

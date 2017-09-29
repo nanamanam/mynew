@@ -2,6 +2,7 @@
   <div class="container">
   <table><tr>
   {{#each qrinfo}}
+  
   <td>
   <table>
       <tr><td><center><b>{{LotID}}-{{NO}}</b></center></td></tr>
@@ -9,8 +10,11 @@
       </td></tr>
   </table>
   </td>
+  {{{newline NO 5 count}}}
+
   {{/each}}
-  </tr></table>
+  </tr>
+  </table>
 
   </div>
 </template>
