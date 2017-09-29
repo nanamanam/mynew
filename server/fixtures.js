@@ -1,3 +1,84 @@
+if (Stocks.find().count() === 0) {
+  Stocks.insert({
+    LotID: 'Test1',
+    Name: 'MICRON1',
+    Status: 'loading',
+    Remain: 10000
+  });
+  Stocks.insert({
+    LotID: 'Test2',
+    Name: 'MICRON2',
+     Status: 'loading',
+    Remain: 10000
+  });
+  Stocks.insert({
+    LotID: 'Test3',
+    Name: 'MICRON3',
+     Status: 'process',
+    Remain: 10000
+  });
+  Stocks.insert({
+    LotID: 'Test4',
+    Name: 'MICRON4',
+     Status: 'still',
+    Remain: 10000
+  });
+
+}
+
+if (Logs.find().count() === 0) {
+    Logs.insert({
+    LotID: 'Test1',
+    NO: 1,
+    TimeIN: '2017-09-01 08:00',
+    TimeOUT: '2017-09-01 09:00',
+    Status: 'OUT',
+    QCIN: '1111',
+    QCOUT: '2222',
+    Note: 'Pass'
+  });
+    Logs.insert({
+    LotID: 'Test1',
+    NO: 2,
+    TimeIN: '2017-09-01 08:00',
+    TimeOUT: '',
+    Status: 'IN',
+    QCIN: '1111',
+    QCOUT: '',
+    Note: 'Pass'
+  });
+    
+    Logs.insert({
+    LotID: 'Test4',
+    NO: 1,
+    TimeIN: '2017-09-01 08:00',
+    TimeOUT: '2017-09-01 09:00',
+    Status: 'OUT',
+    QCIN: '1111',
+    QCOUT: '1111',
+    Note: 'Pass'
+  });
+  
+
+}
+
+if (Admins.find().count() === 0) {
+    Admins.insert({
+    ID: '1111',
+    Name: 'Peter',
+    Status: 'OUT',
+    Note: 'Pass'
+  });
+    Admins.insert({
+    ID: '2222',
+    Name: 'Matin',
+    Status: 'OUT',
+    Note: 'Pass'
+  });
+
+}
+
+
 // Fixture data
 if (Posts.find().count() === 0) {
   var now = new Date().getTime();
