@@ -10,10 +10,14 @@ Template.qrcodelist.helpers({
 Template.registerHelper( 'newline', ( a1, a2,a3) => {
   	
   	//console.log("next");
-  	console.log(a1);
-  	if(a1%(a2+1)==0){
+  	if(a1==1){
+  		console.log("<tr>");
+  		console.log(a1);
+  		return "<tr>";
+  	}
+  	else if(a1%(a2+1)==0 && a1!=a3){
   		console.log("</tr><tr>");
   		return "</tr><tr>";
 	}
-	
+	console.log(a1);
 });

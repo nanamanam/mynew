@@ -1,8 +1,8 @@
 <template name="qrcodelist">
   <div class="container">
-  <table><tr>
+  <table>
   {{#each qrinfo}}
-  
+  {{{newline NO 5 count}}}
   <td>
   <table>
       <tr><td><center><b>{{LotID}}-{{NO}}</b></center></td></tr>
@@ -10,10 +10,9 @@
       </td></tr>
   </table>
   </td>
-  {{{newline NO 5 count}}}
+  
 
   {{/each}}
-  </tr>
   </table>
 
   </div>
