@@ -5,8 +5,20 @@ Meteor.publish('posts', function(options) {
   });
   return Posts.find({}, options);
 });
+
 Meteor.publish('comments', function(postId) {
   check(postId, String);
   return Comments.find({postId: postId});
+});
+
+Meteor.publish('stocks', function() {
+  return Stocks.find();
+});
+
+Meteor.publish('logs', function() {
+  return Logs.find();
+});
+Meteor.publish('admins', function() {
+  return Admins.find();
 });
 
