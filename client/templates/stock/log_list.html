@@ -1,0 +1,47 @@
+<template name="loglist">
+  <div class="posts page">
+  	
+  <div class="container">
+    <h1 class="display-3">Stock Card</h1>
+  </div>
+
+  <!-- Button trigger modal -->
+
+{{>showlist}}
+
+	
+  	<table class="ui celled striped selectable  inverted table">
+  	<thead>
+    <tr>
+    	<th>Lot Number</th>
+    <th>TimeIN</th>
+    <th>QCIN</th>
+    <th>TimeOUT</th>
+    <th>QCOUT</th>
+    <th>Note</th>
+  </tr></thead>
+	<tbody>
+    {{#each logs}}
+		<tr>	
+		<td><div data-tooltip="{{LotID}}" data-inverted="">
+		<a href="{{pathFor 'stockEdit'}}" >
+		{{#if equals Status "OUT"}}
+			<a class="ui red ribbon label"><h4>Batch {{NO}} {{Status}}</h4></a>
+		{{else if equals Status "IN"}}
+			<a class="ui green ribbon label"><h4>Batch {{NO}}  {{Status}}</h4></a>
+		{{/if}}
+		</a>
+		{{LotID}}
+		</div></td>
+		<td>{{TimeIN}}</td>
+		<td>{{getName(QCIN)}}</td>
+		<td>{{TimeOUT}}</td>
+		<td>{{QCOUT}}</td>
+		<td>{{Note}}</td>
+		</tr>    
+	{{/each}}
+	</tbody>
+	</table>
+	
+ </div>
+</template>
